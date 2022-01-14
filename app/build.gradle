@@ -1,19 +1,25 @@
 plugins {
     id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
 }
 
 android {
-    compileSdkVersion 31
-    buildToolsVersion "30.0.2"
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "syrup.group_sugar"
-        minSdkVersion 23
-        targetSdkVersion 31
+        minSdkVersion 19
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        dataBinding {
+            enabled = true
+        }
     }
 
     buildTypes {
@@ -26,18 +32,45 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
 }
 
 dependencies {
 
-    implementation 'androidx.appcompat:appcompat:1.3.1'
-    implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
-    implementation 'androidx.navigation:navigation-fragment:2.3.5'
-    implementation 'androidx.navigation:navigation-ui:2.3.5'
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    // Appcompat
+    implementation androidx.appcompat
+
+    // Core-Ktx
+    implementation androidx.core
+
+//    implementation material
+//
+//    // Constraint layout
+//    implementation androidx.constraintlayout
+
+//    // Navigation
+//    implementation androidx.navigation.ui
+//    implementation androidx.navigation.fragment
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+//    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.google.android.material:material:1.1.0-alpha02'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha3'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0-alpha06'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test:runner:1.4.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    implementation "androidx.navigation:navigation-fragment-ktx:2.3.5"
+    implementation "androidx.navigation:navigation-ui-ktx:2.3.5"
+
+    implementation 'org.jsoup:jsoup:1.11.2'
+
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
+    implementation 'androidx.cardview:cardview:1.0.0'
+
+    implementation 'androidx.viewpager2:viewpager2:1.0.0-beta04'
 }
