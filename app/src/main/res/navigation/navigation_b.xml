@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_b"
+    app:startDestination="@id/fragmentB">
+
+    <fragment
+        android:id="@+id/fragmentB"
+        android:name="syrup.group_sugar.b.FragmentB" >
+        <action
+            android:id="@+id/action_fragmentB_to_fragmentBB"
+            app:destination="@id/fragmentBB" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentBB"
+        android:name="syrup.group_sugar.b.FragmentBB"
+        android:label="FragmentBB" />
+</navigation>
