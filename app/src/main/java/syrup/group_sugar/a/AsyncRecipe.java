@@ -23,7 +23,6 @@ class AsyncRecipe extends AsyncTask<String, Void, List<Recipe>> {
     private TextView tv;
     private Button bt;
     private String uri;
-//    private String title;
     private FragmentAA fragment;
 
     private ProgressBar progerssBer;
@@ -42,15 +41,14 @@ class AsyncRecipe extends AsyncTask<String, Void, List<Recipe>> {
 
         List<String> listItem_name = new ArrayList<>();
         List<String> listItem_serving = new ArrayList<>();
-//        List<String> listTitle = new ArrayList<>();
+        List<String> listHowto_text = new ArrayList<>();
         List<Recipe> list = new ArrayList<>();
         final String uriStr = uri;
-
         int status = 0;
-//        final String uriStr = "https://recipe.rakuten.co.jp/category/36-496";
+
         Log.d("uri", uriStr);
 
-        for(int j =0;j< 3;j++) {
+//        for(int j =0;j< 3;j++) {
             try {
                 URL url = new URL(uriStr);
                 con = (HttpURLConnection) url.openConnection();
@@ -66,6 +64,7 @@ class AsyncRecipe extends AsyncTask<String, Void, List<Recipe>> {
                     Elements elm2 = doc.select("h1.page_title__text");
                     Elements elm3 = doc.select("span.recipe_material__item_name");
                     Elements elm4 = doc.select("span.recipe_material__item_serving");
+                    Elements elm5 = doc.select("span.recipe_howto__text");
                     Element img = elm.get(0);
                     Element title = elm2.get(0);
                     for (int i = 0; i < elm3.size(); i++) {
@@ -75,18 +74,13 @@ class AsyncRecipe extends AsyncTask<String, Void, List<Recipe>> {
                         listItem_serving.add(item_serving.text());
                     }
 
-//                    listImg.add(img.absUrl("src"));
-//                    listUrl.add(urls.absUrl("href"));
-//
-//                }
-                    list.add(new Recipe(img.absUrl("src"), title.text(), listItem_name, listItem_serving));
-//                list.add(listTitle);
-//                list.add(listImg);
-//                list.add(listUrl);
+                    for (int i = 0; i < elm5.size(); i++) {
+                        Element Howto_text = elm5.get(i);
+                        listHowto_text.add(Howto_text.text());
+                    }
 
-//            Log.e("image", listImg.toString());
-//            Log.e("url", listUrl.toString());
-//                    Log.e("list", list.toString());
+                    list.add(new Recipe(img.absUrl("src"), title.text(), listItem_name, listItem_serving, listHowto_text));
+
                     con.disconnect();
                     return list; //onPostExecuteへreturn
                 } else {
@@ -94,6 +88,7 @@ class AsyncRecipe extends AsyncTask<String, Void, List<Recipe>> {
                         Thread.sleep(100);
                     } catch (InterruptedException ex) {
                         ex.printStackTrace();
+                        return null;
                     }
                 }
             } catch (Exception e) { //エラー
@@ -102,9 +97,11 @@ class AsyncRecipe extends AsyncTask<String, Void, List<Recipe>> {
                     Thread.sleep(100);
                 } catch (InterruptedException ex) {
                     ex.printStackTrace();
+                    return null;
                 }
+                return null;
             }
-        }
+//        }
         return null;
     }
 
@@ -119,27 +116,6 @@ class AsyncRecipe extends AsyncTask<String, Void, List<Recipe>> {
         try {
             if(list != null) {
                 fragment.Toast1(list);
-////                tv.setText(title);
-////                switch (count){
-////                    case 0: fragment.setList1(list.get(1));
-////                        break;
-////                    case 1: fragment.setList2(list.get(1));
-////                        break;
-////                    case 2: fragment.setList3(list.get(1));
-////                        break;
-//                    case 3: fragment.setList4(list.get(1));
-//                        break;
-//                }
-//
-//                for (int i = 0; i < imgs.size(); i++) {
-//                    Picasso.get()
-//                            //画像URL
-//                            .load(list.get(0).get(i).toString())
-//                            .priority(Picasso.Priority.HIGH)
-//                            .resize(200, 200) //表示サイズ指定
-//                            .centerCrop() //resizeで指定した範囲になるよう中央から切り出し
-//                            .into(imgs.get(i)); //imageViewに流し込み
-//                }
             }else{
                 tv.setVisibility(View.VISIBLE);
                 bt.setVisibility(View.VISIBLE);

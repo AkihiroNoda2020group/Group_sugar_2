@@ -6,10 +6,10 @@
     android:layout_height="wrap_content">
 
     <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:background="#2a592d"
-            android:layout_height="250dp"
-            tools:srcCompat="@tools:sample/backgrounds/scenic[18]"/>
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="248dp"
+        android:background="#7B887C"
+        tools:srcCompat="@tools:sample/backgrounds/scenic[18]" />
 
 </LinearLayout>

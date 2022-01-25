@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -37,6 +38,11 @@ class FragmentAA: Fragment(R.layout.fragment_aa) {
         super.onViewCreated(view, savedInstanceState)
         Log.i("bottomNavigationTest", "onViewCreated-FragmentAa")
 
+        reload.setOnClickListener {
+            val ft: FragmentTransaction = requireFragmentManager().beginTransaction()
+            ft.detach(this).attach(this).commit()
+        }
+
         val url = arguments?.getString("url")
         val asynk = AsyncRecipe(this, message, reload, progressBar, url)
         asynk.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR)
@@ -54,9 +60,12 @@ class FragmentAA: Fragment(R.layout.fragment_aa) {
                 mItemList.add(PopularDisplayer(list.get(0).Item_name.get(i),
                         list.get(0).Item_serving.get(i)))
             }
-            mItemList.add(TitleDisplayer("Article"))
-            mItemList.add(ArticleDisplayer())
-            mItemList.add(ArticleDisplayer())
+            mItemList.add(TitleDisplayer("作り方"))
+            for (i in 0..list.get(0).Howto_text.size - 1) {
+                mItemList.add(ArticleDisplayer(i, list.get(0).Howto_text.get(i)))
+            }
+
+//            mItemList.add(ArticleDisplayer())
 //            mItemList.add(ArticleDisplayer())
 //            mItemList.add(ArticleDisplayer())
 //            mItemList.add(ArticleDisplayer())

@@ -18,13 +18,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            android:src="#88888888" />
+            android:background="#7B887C" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Title"
+            android:background="@color/black"
             style="@style/TextAppearance.AppCompat.Medium"
             android:layout_gravity="bottom"
             android:layout_margin="12dp"

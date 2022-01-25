@@ -4,40 +4,75 @@
                 xmlns:tools="http://schemas.android.com/tools" android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:padding="8dp"
-                android:layout_height="120dp">
-
-    <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="100dp"
-            android:id="@+id/articleImage"
-            android:scaleType="centerCrop"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:background="#2a592d"
-            android:layout_height="100dp"
-            android:layout_alignParentLeft="true"
-            tools:srcCompat="@tools:sample/backgrounds/scenic[1]"/>
+                android:layout_height="150dp">
 
     <TextView
-            android:id="@+id/articleTitle"
-            android:layout_width="wrap_content"
-            android:layout_toEndOf="@+id/articleImage"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:textStyle="bold"
-            android:textSize="16dp"
-            android:text="Article Title"
-            android:layout_toRightOf="@+id/articleImage"
-            android:layout_marginStart="8dp"/>
+        android:id="@+id/Howto_text_no"
+        android:layout_width="66dp"
+        android:layout_height="66dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="38dp"
+        android:layout_marginBottom="38dp"
+        android:background="#FF9800"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:scaleType="centerCrop"
+        android:text="1"
+        android:textSize="36dp" />
 
     <TextView
-            android:id="@+id/articleDesc"
-            android:layout_width="match_parent"
-            android:layout_toEndOf="@+id/articleImage"
-            android:layout_margin="8dp"
-            android:layout_below="@+id/articleTitle"
-            android:text="This is article description.This is article description.This is article description.This is article description.This is article description.This is article description."
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/articleImage"/>
+        android:id="@+id/Howto_text"
+        android:layout_width="292dp"
+        android:layout_height="67dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="96dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="16dp" />
 
 </RelativeLayout>
+<!--    <?xml version="1.0" encoding="utf-8"?>-->
+<!--<LinearLayout-->
+<!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--xmlns:tools="http://schemas.android.com/tools"-->
+<!--android:orientation="vertical"-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="wrap_content">-->
+
+<!--<LinearLayout-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content">-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/Howto_text_no"-->
+<!--        android:layout_width="54dp"-->
+<!--        android:layout_height="89dp"-->
+<!--        android:layout_margin="8dp"-->
+<!--        android:scaleType="fitXY"-->
+<!--        android:textSize="20dp"-->
+<!--        android:background="#FF9800"-->
+<!--        android:gravity="center"-->
+<!--        android:textColor="@color/white"/>-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/Howto_text"-->
+<!--        android:layout_width="323dp"-->
+<!--        android:layout_height="89dp"-->
+<!--        android:layout_margin="8dp"-->
+<!--        android:scaleType="fitXY"-->
+<!--        android:textColor="@color/black"/>-->
+
+<!--</LinearLayout>-->
+<!--</LinearLayout>-->
